@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 beacon-api-client = { git = "https://github.com/ralexstokes/beacon-api-client" } 
+ethereum-consensus = { git = "https://github.com/ralexstokes/ethereum-consensus", rev = "4d4e3fb57584d9c3bba6b4fc488f23db4937ae79" }
+tokio = { version = "1.28.2", features = ["full"] }
+url = "2.2.2"

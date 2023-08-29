@@ -195,6 +195,9 @@ name = "blob_retriever"
 version = "0.1.0"
 dependencies = [
  "beacon-api-client",
+ "ethereum-consensus",
+ "tokio",
+ "url",
 ]
 
 [[package]]
