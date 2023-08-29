@@ -150,7 +150,7 @@ checksum = "8c3c1a368f70d6cf7302d78f8f7093da241fb8e8807c05cc9e51a125895a6d5b"
 [[package]]
 name = "beacon-api-client"
 version = "0.1.0"
-source = "git+https://github.com/ralexstokes/beacon-api-client#cc6ff93b2d9c8a428e9c94b3cdfcc074ab5c44bd"
+source = "git+https://github.com/ralexstokes/beacon-api-client?rev=7f28993615fde52d563dd601a0511c34fe9b7c38#7f28993615fde52d563dd601a0511c34fe9b7c38"
 dependencies = [
  "clap",
  "ethereum-consensus",
@@ -504,7 +504,7 @@ dependencies = [
 [[package]]
 name = "ethereum-consensus"
 version = "0.1.1"
-source = "git+https://github.com/ralexstokes/ethereum-consensus?rev=4d4e3fb57584d9c3bba6b4fc488f23db4937ae79#4d4e3fb57584d9c3bba6b4fc488f23db4937ae79"
+source = "git+https://github.com/ralexstokes/ethereum-consensus?rev=12508c1f9b0c8f4bf4c5e9b6d441e840c1b37fd9#12508c1f9b0c8f4bf4c5e9b6d441e840c1b37fd9"
 dependencies = [
  "async-stream",
  "blst",
