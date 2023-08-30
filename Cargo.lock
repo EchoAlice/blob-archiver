@@ -197,6 +197,7 @@ dependencies = [
  "beacon-api-client",
  "ethereum-consensus",
  "tokio",
+ "tokio-stream",
  "url",
 ]
 
