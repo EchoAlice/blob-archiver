@@ -11,4 +11,5 @@ ethereum-consensus = { git = "https://github.com/ralexstokes/ethereum-consensus"
 tokio = { version = "1.28.2", features = ["full"] }
 # tokio-stream = { version = "0.1.8", optional = true }
 tokio-stream = "0.1"
+uint = "0.9.5"
 url = "2.2.2"

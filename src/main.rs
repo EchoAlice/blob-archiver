@@ -1,20 +1,19 @@
+use crate::kzg_crypto::verify_blob_kzg_proof;
 use crate::url::make_url;
 use beacon_api_client::{mainnet::Client, BlockId};
-use ethereum_consensus::{clock::from_system_time, deneb::BlobSidecar};
+use ethereum_consensus::{clock::from_system_time, deneb::mainnet::BlobSidecar};
 use tokio_stream::StreamExt;
-
+mod kzg_crypto;
 mod url;
 
-const BYTES_PER_BLOB: usize = 131072; // 32 x 4096
-
 // Why are blobs only printing occasionally?
-fn process_sidecars(sidecars: Vec<BlobSidecar<BYTES_PER_BLOB>>) {
+fn process_sidecars(sidecars: Vec<BlobSidecar>) {
     for car in sidecars {
-        println!("{:?}", car.kzg_commitment);
-    }
+        // TODO: Verify blob against commitment
+        verify_blob_kzg_proof(car.blob, car.kzg_commitment, car.kzg_proof);
 
-    // TODO: Verify blob against commitment
-    // TODO (future): Write sidecars to database
+        // TODO (future): Write sidecars to database
+    }
 }
 
 #[tokio::main]
