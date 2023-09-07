@@ -1,16 +1,14 @@
-use crate::kzg_crypto::verify_blob_kzg_proof;
 use crate::url::make_url;
 use beacon_api_client::{mainnet::Client, BlockId};
 use ethereum_consensus::{clock::from_system_time, deneb::mainnet::BlobSidecar};
 use tokio_stream::StreamExt;
-mod kzg_crypto;
 mod url;
 
 // Why are blobs only printing occasionally?
 fn process_sidecars(sidecars: Vec<BlobSidecar>) {
     for car in sidecars {
         // TODO: Verify blob against commitment
-        verify_blob_kzg_proof(car.blob, car.kzg_commitment, car.kzg_proof);
+        // verify_blob_kzg_proof(car.blob, car.kzg_commitment, car.kzg_proof);
 
         // TODO (future): Write sidecars to database
     }
@@ -33,7 +31,7 @@ async fn main() {
 
     while let Some(slot) = slot_stream.next().await {
         println!("Slot: {:?}", slot);
-        let id = BlockId::Head;
+        let id = BlockId::Slot(slot);
         let indices = [];
         let sidecars = client.get_blob_sidecars(id, &indices).await.unwrap();
         process_sidecars(sidecars);
